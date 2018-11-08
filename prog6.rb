@@ -1,8 +1,14 @@
+class WrongNumberOfPlayersError< Exception
+end
+class NoSuchStrategyError< Exception
+end
+
+
 def rps_game_winner(array)
   if (array.size >2)||(array.size  <1)
-    raise "WrongNumberOfPlayersError"
+    raise WrongNumberOfPlayersError
   elsif !((["P","S","R"].include? array[0][1] )&&["P","S","R"].include?(array[1][1] ))
-    raise "NoSuchStrategyError"
+    raise NoSuchStrategyError
   else
     if  (array[0][1] == array[1][1])
       return array[0][0].to_s + ' '<< array[0][1]
