@@ -16,7 +16,7 @@ def count_words(string)
         flag_arr[j] = true
       end
     end
-  output[arr_tmp[i]] = num
+  output[arr_tmp[i][0]] = num
   end
 return output
 end
