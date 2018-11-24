@@ -1,16 +1,16 @@
 def sort_array(array)
   minimal = array.min
   maximum = array.max
-  size = array.size
-  for i in 0..size
-    if array[i] == maximum
-      array[i] = minimal
-    elsif array[i] == minimal
-      array[i] = maximum
-    end
-    end
-    array.push(minimal)
-    return array.compact 
+ array.map do |el|
+    el = if el == maximum
+           minimal
+           elsif el == minimal
+                  maximum
+            else
+              el
+          end
+ end.push(minimal)
+
 end
 
 

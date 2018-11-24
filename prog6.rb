@@ -1,26 +1,17 @@
-class WrongNumberOfPlayersError< Exception
+class WrongNumberOfPlayersError< StandardError
 end
-class NoSuchStrategyError< Exception
+class NoSuchStrategyError< StandardError
 end
-
 
 def rps_game_winner(array)
-  if (array.size >2)||(array.size  <1)
-    raise WrongNumberOfPlayersError
-  elsif !((["P","S","R"].include? array[0][1] )&&["P","S","R"].include?(array[1][1] ))
-    raise NoSuchStrategyError
-  else
-    if  (array[0][1] == array[1][1])
-      return array[0][0].to_s + ' '<< array[0][1]
-    elsif (array[0][1] == "S" && array[1][1] == "P")||(array[0][1] == "R" && array[1][1] == "S")||
-      (array[0][1] == "P" && array[1][1] == "R")
-      return array[0]
-    elsif (array[1][1] == "S" && array[0][1] == "P")||(array[1][1] == "R" && array[0][1] == "S")||
-      (array[1][1] == "P" && array[0][1] == "R")
-      return array[1][0].to_s + ' ' << array[1][1]
-    end
-  end
-
+  hash = {"R" => 0,
+           "S" => 1,
+           "P" =>2}
+  p1 , p2 , pc1, pc2 = array[0][0],array[1][0] , array[0][1],array[1][1]
+  raise WrongNumberOfPlayersError if (array.size >2)||(array.size  <1)
+  raise NoSuchStrategyError if (/[^PRS]/ === pc1) | (/[^PRS]/ === pc2)
+  return p1 + ' ' + pc1 if ((hash[pc1] - hash[pc2]) % 3 == 2)
+  p2 + ' ' + pc2
   end
 
 

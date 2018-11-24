@@ -1,16 +1,16 @@
 class Dessert
   attr_accessor :name, :calories
-  def initialize (name, calories) # конструктор класса.
-    @name = name # переменная объекта
+  def initialize (name, calories)
+    @name = name
     @calories = calories
   end
 
   def healthy?
-    return  self.calories < 200
+    calories < 200
   end
 
   def delicious?
-    return true
+    true
   end
 end
 
@@ -21,7 +21,7 @@ class JellyBean < Dessert
    @flavor =flavor
  end
 def delicious?
-  return @flavor!="black licorice"
+  @flavor!="black licorice"
 end
 
 end

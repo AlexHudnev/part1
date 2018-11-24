@@ -1,7 +1,8 @@
 def palindrome?(input)
-  if input!= nil
-  str_tmp =  input.to_s.downcase.scan(/(\w+|[а-я]+)/).join
-  return str_tmp.reverse == str_tmp
-  end
-  return false
+  return false if input.is_a? NilClass
+  str_tmp =  input.downcase.gsub(/[^a-zа-я0-9]/,'')
+  str_tmp.reverse == str_tmp
 end
+
+
+puts palindrome?("A man, a plan, a canal -- Panama")

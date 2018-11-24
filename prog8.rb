@@ -1,16 +1,8 @@
 def multiply_numbers(input=[])
-  local = input.to_s.scan(/\d/).join.split("")
-  a = 1
-  if local.size == 0
-    return nil
-  end
-  local.each do |el|
-    a *= el.to_i
-  end
-
-return a
+  locall = input.to_s.scan(/\d/).join.split('')
+  return nil if locall.size == 0
+  locall.inject(1){|ac , el| ac * el.to_i}
 end
-
 
 puts multiply_numbers() # => nil
 puts multiply_numbers('ss') # => nil

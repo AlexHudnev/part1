@@ -1,18 +1,7 @@
 def max_odd(array)
-  max = nil
-  flag = false
-
-  array.each do |el|
-    if (el.class == Integer)||(el.class == Float)
-    if ((el %2)!=0)&&(flag == false)
-      max = el
-      flag = true
-    elsif ((el %2)!=0)&&(flag == true)&&(el>max)
-      max = el
-    end
-  end
-end
-  return max
+  array.select!{|el| el.is_a? Numeric}
+  array.select!{|el| el % 2 != 0}
+  array.max
 end
 
 

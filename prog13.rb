@@ -2,7 +2,7 @@
 class String
 def palindrome?()
   str_tmp =  self.downcase.scan(/(\w+|[а-я]+)/).join
-  return str_tmp.reverse == str_tmp
+  str_tmp.reverse == str_tmp
 end
 end
 

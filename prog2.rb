@@ -1,13 +1,6 @@
 def coincidence(array = false,range = false)
-out = []
-  if array && range
-    array.each do |el|
-      if range.include?(el)
-      out.push(el)
-     end
-   end
-   end
-   return out
+  return [ ] if !array|!range
+  array.select{|el| range.include?(el)}
  end
 
-puts coincidence( )
+print coincidence()

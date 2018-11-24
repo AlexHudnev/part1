@@ -1,11 +1,6 @@
-require "active_support"
-
 def date_in_future(integer)
-  t = Time.now
-  if integer.class == Integer
-    t += (60 * 60 * 24) * integer
-  end
-  return t.strftime("%d-%m-%Y %H:%M:%S")
+  return (Time.now+ (60 * 60 * 24) * integer).strftime("%d-%m-%Y %H:%M:%S") if integer.is_a? Integer
+  Time.now.strftime("%d-%m-%Y %H:%M:%S")
 end
 
 puts date_in_future([]) # => текущая дата
