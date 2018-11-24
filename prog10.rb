@@ -1,8 +1,6 @@
 def count_words(string)
   hash = Hash.new(0)
-  string.downcase.split.each do |word|
-    hash[word] += 1
-  end
+  string.downcase.split.each{|word| hash[word] += 1}
 hash
 end
 
