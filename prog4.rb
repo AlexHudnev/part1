@@ -2,13 +2,13 @@ def sort_array(array)
   minimal = array.min
   maximum = array.max
  array.map do |el|
-    el = if el == maximum
+        if el == maximum
            minimal
-           elsif el == minimal
-                  maximum
-            else
+        elsif el == minimal
+           maximum
+        else
               el
-          end
+        end
  end.push(minimal)
 
 end

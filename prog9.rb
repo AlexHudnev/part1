@@ -1,8 +1,11 @@
 def connect_hashes(hash1, hash2)
   sum_arr1 = (hash1.values).inject(0){ |result, elem| result + elem }
   sum_arr2 = (hash2.values).inject(0){ |result, elem| result + elem }
-  a,b = hash1, hash2 if sum_arr1>sum_arr2
-  a,b = hash2, hash1 if sum_arr1<=sum_arr2
+  if sum_arr1>sum_arr2
+    a,b = hash1, hash2
+  else
+    a,b = hash2, hash1
+    end
   a.select!{|key ,val| val>=10}
   a.merge!(b.select!{|key ,val| val >=10 && !(a.keys.include?(key)) })
  (a.sort_by {|elem| elem[1]}).to_h

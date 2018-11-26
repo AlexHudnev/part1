@@ -1,6 +1,6 @@
 def multiply_numbers(input=[])
   locall = input.to_s.scan(/\d/).join.split('')
-  return nil if locall.size == 0
+  return nil if locall.size.zero?
   locall.inject(1){|ac , el| ac * el.to_i}
 end
 

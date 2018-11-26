@@ -1,6 +1,6 @@
 def coincidence(array = false,range = false)
-  return [ ] if !array|!range
+  return [ ] unless array||range
   array.select{|el| range.include?(el)}
  end
 
-print coincidence()
+print coincidence([1, 2, 3, 4, 5], (3..5))
